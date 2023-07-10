@@ -1,0 +1,10 @@
+{
+  "type": "module",
+  "dependencies": {
+    "@fastify/error": "^3.3.0",
+    "@fastify/swagger": "^8.8.0",
+    "@fastify/swagger-ui": "^1.9.2",
+    "@fastify/under-pressure": "github:muya/under-pressure#46047ea325392e14c3d2cfe876f5172d4dbdd936",
+    "fastify": "^4.19.2"
+  }
+}
