@@ -65,6 +65,41 @@ fastify.get('/', async function handler (request, reply) {
   return { hello: 'world' }
 })
 
+// fastify.get('/metrics', async function handler(request, reply) {
+//   return { some: 'payload' }
+// })
+
+fastify.route({
+  method: 'GET',
+  url: '/metrics',
+  schema: {
+    operationId: 'Get Metrics',
+    summary: 'Get Metrics',
+    description: 'Fetch Prometheus Metrics',
+    tags: ['default'],
+    produces: ['text/plain'],
+    // contentType: 'text/plain',
+    response: {
+      default: {
+        description: 'Metrics fetched successfully',
+        contentType: 'text/plain',
+        // type: 'string',
+        example: 'some string',
+        content: {
+          'text/plain': {
+            schema: {
+              type: 'string'
+            }
+          }
+        }
+      }
+    }
+  },
+  handler: (request, reply) => {
+    return { some: 'payload' }
+  }
+})
+
 // Run the server!
 try {
   await fastify.listen({ port: 3000 })
